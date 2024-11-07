@@ -52,13 +52,15 @@ for j = 1:N
         lambda_check = lambda_check + 2*pi;
     end
     
-    while lambda_check < -pi || lambda_check > pi
-        if lambda_check < -pi
-            lambda_check = lambda_check + 2 * pi;
-        elseif lambda_check > pi
-            lambda_check = lambda_check - 2 * pi;
-        end
-    end
+    lambda_check = mod(lambda_check, 2 * pi);
+    
+%     while lambda_check < 0 || lambda_check > 2 * pi
+%         if lambda_check < 0
+%             lambda_check = lambda_check + 2 * pi;
+%         elseif lambda_check > 2 * pi
+%             lambda_check = lambda_check - 2 * pi;
+%         end
+%     end
     
     lambda(j) = lambda_check;
 end
